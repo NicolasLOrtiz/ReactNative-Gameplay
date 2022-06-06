@@ -1,14 +1,14 @@
 import React from "react";
 import {
-  TouchableOpacityProps,
-  TouchableOpacity,
-  View,
   Text,
+  TouchableOpacity,
+  TouchableOpacityProps,
+  View,
 } from "react-native";
-import { styles } from "./styles";
-import { GuildIcon } from "../GuildIcon";
-import { Feather } from "@expo/vector-icons";
-import { theme } from "../../global/styles/theme";
+import {styles} from "./styles";
+import {GuildIcon} from "../GuildIcon";
+import {Feather} from "@expo/vector-icons";
+import {theme} from "../../global/styles/theme";
 
 export type GuildProps = {
   id: string;
@@ -21,10 +21,10 @@ type Props = TouchableOpacityProps & {
   data: GuildProps;
 };
 
-const Guild = ({ data, ...rest }: Props) => {
+const Guild = ({data, ...rest}: Props) => {
   return (
     <TouchableOpacity style={styles.container} activeOpacity={0.7} {...rest}>
-      <GuildIcon />
+      <GuildIcon guildId={data.id} iconId={data.icon}/>
 
       <View style={styles.content}>
         <View>
@@ -36,7 +36,7 @@ const Guild = ({ data, ...rest }: Props) => {
         </Text>
       </View>
 
-      <Feather name="chevron-right" color={theme.colors.heading} size={24} />
+      <Feather name="chevron-right" color={theme.colors.heading} size={24}/>
     </TouchableOpacity>
   );
 };
